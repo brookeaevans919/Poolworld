@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Magnificent Fountains at a FL Pool</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script> 
+  <script src="https://unpkg.com/@c-frame/aframe-particle-system-component@1.2.0/dist/aframe-particle-system-component.min.js"></script> 
+</head>
+<body>
+  <a-scene background="color:#000">
+
+    <a-assets>
+      <img id="pool" src="snapshot_pool.jpg" crossorigin="anonymous">
+      <img id="sand" src="sand-texture.jpg">
+      <img id="icecream" src="icecream-texture.jpg">
+      <img id="cone" src="bluemetal-texure.jpg">
+    </a-assets>
+
+    <a-sky src="#pool" rotation="0 -70 0"></a-sky>
+
+    <a-entity camera look-controls rotation="0 -2 0"></a-entity>
+    
+    <!-- background fountain-->
+    <a-entity position="0 2.25 -15" particle-system="color: #EF0000,#44CC00; particleCount: 200; maxAge: 5; spawnRate: 1"></a-entity>
+
+    <!-- fountain 1-->
+    <a-entity position=".92 -1 -1.5"
+              animation="property: rotation; from: 0 0 0; to: 0 360 0; dur: 15000; easing: linear; loop: true">
+      <a-cone position="0 0.8 0" radius-bottom="0.05" radius-top="0.1" height="0.2" material="src: #cone"></a-cone>
+      <a-sphere position="0 1.03 0" radius="0.12" material="src: #icecream"></a-sphere>
+      
+      <!-- Fountain: blue water droplets spraying up, arcing down with gravity -->
+      <a-entity position="0 1.15 0"
+      particle-system="preset: default;  
+                       color: #88ddff,firebrick,#a134eb;
+                       particleCount: 300;
+                       size: 0.06,0.09;
+                       opacity: 0.9,0.2;
+                       velocityValue: 0 8 0;          
+                       velocitySpread: 3 0 3;         
+                       accelerationValue: 0 -9 0;      
+                       maxAge: 2.8;
+                       spawnRate: 1.5;
+                       blending: additive">
+</a-entity>
+    </a-entity>
+
+    <!-- fountain 2-->
+    <a-entity position="-.71 -1 -1.4"
+              animation="property: rotation; from: 0 0 0; to: 0 360 0; dur: 15000; easing: linear; loop: true">
+      <a-cone position="0 0.8 0" radius-bottom="0.05" radius-top="0.1" height="0.2" material="src: #cone"></a-cone>
+      <a-sphere position="0 1.03 0" radius="0.12" material="src: #icecream"></a-sphere>
+      
+      <!-- Fountain: blue water droplets spraying up -->
+      <a-entity position="0 1.15 0"
+      particle-system="preset: default;  
+                       color: #88ddff,firebrick,#a134eb;
+                       particleCount: 300;
+                       size: 0.06,0.09;
+                       opacity: 0.9,0.2;
+                       velocityValue: 0 8 0;          
+                       velocitySpread: 3 0 3;         
+                       accelerationValue: 0 -9 0;      
+                       maxAge: 2.8;
+                       spawnRate: 1.5;
+                       blending: additive">
+</a-entity>
+    </a-entity>
+
+    <!-- Poodle by jeremy [CC-BY] via Poly Pizza-->
+<a-entity 
+gltf-model="url(Poodle.glb)"     
+position="-3.95 -1 -4"               
+scale="0.02 0.02 0.02"                     
+rotation="1 0 0"></a-entity>
+      
+
+<!-- Flamingo by Хмара Сергей [CC-BY] via Poly Pizza -->
+<a-entity 
+gltf-model="url(Flamingo.glb)"     
+position="3.5 -1 -4"               
+scale=".008 .008 .008"                     
+rotation="1 0 0"></a-entity>
+
+
+    <!-- Simple lighting -->
+    <a-light type="ambient" color="#aaa"></a-light>
+    <a-light type="directional" intensity="0.7" position="5 10 5"></a-light>
+  </a-scene>
+</body>
+</html>
